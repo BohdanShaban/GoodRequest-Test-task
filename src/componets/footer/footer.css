@@ -1,0 +1,47 @@
+/* FOOTER BLOCK (Component)  117px */
+footer {
+    padding: 0 0 133px 0;
+}
+.footer-border {
+    min-width: 1140px;
+    height: 1px;
+    background-color: #2F2F2F;
+    background: rgba(47, 47, 47, 0.16);
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    margin-bottom: 117px;
+}
+.footerWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-logo {
+    display: flex;
+    align-items: center;
+    /* margin-right: 168px; */
+}
+.gog-img {
+    display: block;
+    margin-right: 13px;
+    width: 53px;
+    height: 54px;
+}
+.gog-txt {
+    display: block;
+    width: 153px;
+    height: 36px;
+}
+.info-block {
+    /* margin-right: 121px; */
+    max-height: 170px;
+}
+.footer-link {
+    display: block;
+    text-decoration: none;
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 200%;
+
+    color: #585757;
+}
