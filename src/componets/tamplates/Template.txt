@@ -31,4 +31,4 @@ const SomeClassName = () => {
     )
 }
 
-//export default SomeClassName;
+export default SomeClassName;

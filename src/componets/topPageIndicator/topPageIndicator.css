@@ -1,0 +1,18 @@
+/* PAGE DOTS    */
+.page-dots {
+    display: flex;
+}
+.page__dot {
+    width: 20px;
+    height: 6px;
+    background: #9F9F9F;
+    opacity: 0.36;
+    border-radius: 10px;
+}
+.page__dot_active {
+    width: 43.77px;
+    height: 6px;   
+    background: linear-gradient(94.75deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 100.7%), #CD8B65;
+    opacity: 1;
+    border-radius: 10px;
+}

@@ -1,0 +1,20 @@
+/*  INPUT BLOCK (Component)  */
+.input-block {
+    padding: 16px 24px;
+    background: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.title__input {
+    line-height: 21px;
+    margin-bottom: 0;
+}
+.input-label {
+    font-family: Public Sans;
+    font-size: 16px;
+    line-height: 21px;
+    border: none;
+
+    color: #9F9F9F;
+}
