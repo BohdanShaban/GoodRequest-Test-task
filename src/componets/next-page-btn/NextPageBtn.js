@@ -1,5 +1,3 @@
-import './nextPageBtn.css'
-
 import styled from "styled-components"
 
 

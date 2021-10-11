@@ -9,6 +9,7 @@ import SumChooseBtns from '../../sum-choose-btns/SumChooseBtns';
 import NextPageBtn from '../../next-page-btn/NextPageBtn';
 import UpperTitle from '../../upper-titles/UpperTitle';
 import UpperSubTitle from '../../upper-titles/UpperSubTitle';
+import PrevPageBtn from "../../prev-page-btn/PrevPageBtn";
 
 
 
