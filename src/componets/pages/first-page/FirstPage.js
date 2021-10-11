@@ -1,4 +1,6 @@
 import './firstPage.css'
+import styled from "styled-components"
+
 
 import TopPageIndicator from '../../topPageIndicator/TopPageIndicator';
 import PageHeader from '../../page-header/PageHeader';
@@ -8,6 +10,13 @@ import SumChooseBtns from '../../sum-choose-btns/SumChooseBtns';
 import NextPageBtn from '../../next-page-btn/NextPageBtn';
 import UpperTitle from '../../upper-titles/UpperTitle';
 import UpperSubTitle from '../../upper-titles/UpperSubTitle';
+
+const TitlesWrapper = styled.div`
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 56px;
+`
 
 
 
@@ -31,19 +40,19 @@ const FirstPage = () => {
 
 
             {/* <!-- TITLES BLOCK-S (Component-s) --> */}
-            <div className="titlesWrapper">
+            <TitlesWrapper>
                 <UpperTitle titleTxt={'O projekte'} />
                 <UpperSubTitle subTitleTxt={'Nepovinné'} />
-            </div>
+            </TitlesWrapper>
 
             {/* <!-- INPUT BLOCK (Component) --> */}
             <UserInput/>
 
 
             {/* <!-- TITLES BLOCK-S (Component-s) --> */}
-            <div className="titlesWrapper">
+            <TitlesWrapper>
                 <UpperTitle titleTxt={'Suma, ktorou chcem prispieť'} />
-            </div>
+            </TitlesWrapper>
 
 
             {/* <!-- CHOOSE-SUM BLOCK (Component) --> */}

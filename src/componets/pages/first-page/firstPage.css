@@ -6,25 +6,3 @@
     width: 557px;
     height: 800px;
 }
-.right_photo {
-    margin-left: 65px;
-    width: 364px;
-    height: 730px;
-}
-
-
-
-
-/* TITLES BLOCK-S (Component-s) */
-.titlesWrapper {
-    display: flex;
-    justify-content: space-between;
-
-    margin-top: 56px;
-}
-.title {
-    
-}
-.sub-title {
-    
-}
