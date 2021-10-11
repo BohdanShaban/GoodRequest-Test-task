@@ -1,4 +1,3 @@
-import './firstPage.css'
 import styled from "styled-components"
 
 
@@ -11,11 +10,17 @@ import NextPageBtn from '../../next-page-btn/NextPageBtn';
 import UpperTitle from '../../upper-titles/UpperTitle';
 import UpperSubTitle from '../../upper-titles/UpperSubTitle';
 
-const TitlesWrapper = styled.div`
 
+
+const TitlesWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 56px;
+`
+const PrevNextBtnsWrapper = styled.div`
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
 `
 
 
@@ -25,7 +30,7 @@ const FirstPage = () => {
 
     return (
 
-        <div className="page_content">
+        <div style={{maxWidth:'557px'}}>
 
             {/* <!-- PAGE-DOTS BLOCK (Component) --> */}
             <TopPageIndicator/>
@@ -60,7 +65,11 @@ const FirstPage = () => {
 
 
             {/* <!-- BTN BLOCK (Component) --> */}
-            <NextPageBtn/>
+            <PrevNextBtnsWrapper>
+                <div></div>
+                <NextPageBtn active/>
+            </PrevNextBtnsWrapper>
+            
 
         </div>
     )
