@@ -6,6 +6,8 @@ import PaymentChoose from '../../payment-choose/PaymentChoose';
 import UserInput from '../../user-input/UserInput';
 import SumChooseBtns from '../../sum-choose-btns/SumChooseBtns';
 import NextPageBtn from '../../next-page-btn/NextPageBtn';
+import UpperTitle from '../../upper-titles/UpperTitle';
+import UpperSubTitle from '../../upper-titles/UpperSubTitle';
 
 
 
@@ -30,8 +32,8 @@ const FirstPage = () => {
 
             {/* <!-- TITLES BLOCK-S (Component-s) --> */}
             <div className="titlesWrapper">
-                <div className="title">O projekte</div>
-                <div className="sub-title">Nepovinné</div>
+                <UpperTitle titleTxt={'O projekte'} />
+                <UpperSubTitle subTitleTxt={'Nepovinné'} />
             </div>
 
             {/* <!-- INPUT BLOCK (Component) --> */}
@@ -40,7 +42,7 @@ const FirstPage = () => {
 
             {/* <!-- TITLES BLOCK-S (Component-s) --> */}
             <div className="titlesWrapper">
-                <div className="title">Suma, ktorou chcem prispieť</div>
+                <UpperTitle titleTxt={'Suma, ktorou chcem prispieť'} />
             </div>
 
 
