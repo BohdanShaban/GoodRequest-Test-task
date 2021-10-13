@@ -1,8 +1,9 @@
 import './paymentChoose.css'
 import React, {Component} from "react";
 
-
-export default class PaymentChoose extends Component {
+import {connect} from 'react-redux';
+import {certainShelterShoosed, sheltersRequested, sheltersLoaded} from '../../actions'
+class PaymentChoose extends Component {
 
 
 
@@ -27,3 +28,16 @@ export default class PaymentChoose extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        menuItems: state.menu,
+        loading: state.loading,
+        error: state.error
+    }
+}
+const mapDispatchToProps = {
+    //onItemFromCartDeleate
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentChoose);

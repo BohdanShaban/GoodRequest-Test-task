@@ -13,7 +13,7 @@ const sheltersLoaded = (shelters) => {
     }
 }
 
-const menuRequested = () => {
+const sheltersRequested = () => {
     return {
         type: 'SHELTERS_REQUESTED'
     }
@@ -23,5 +23,5 @@ const menuRequested = () => {
 export {
     certainShelterShoosed,
     sheltersLoaded,
-    menuRequested
+    sheltersRequested
 };
