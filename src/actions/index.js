@@ -1,8 +1,9 @@
 
 
-const certainShelterShoosed = () => {
+const paymentTypeChoosed = (idStr) => {
     return {
-        type: 'CERTAIN_SHELTER_CHOOSED'
+        type: 'PAYMENT_TYPE_CHOOSED',
+        payload: idStr
     }
 }
 
@@ -21,7 +22,7 @@ const sheltersRequested = () => {
 
 
 export {
-    certainShelterShoosed,
+    paymentTypeChoosed,
     sheltersLoaded,
     sheltersRequested
 };

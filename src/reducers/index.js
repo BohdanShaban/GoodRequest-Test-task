@@ -1,5 +1,5 @@
 const initState = {
-    certainShelterSelected: false,
+    paymentType: '',
     sheltersArr: [],
     totalSum: 0
 }
@@ -8,6 +8,13 @@ const initState = {
 const reducer = (state = initState, action) => {
 
     switch(action.type) {
+
+        case 'PAYMENT_TYPE_CHOOSED': 
+            return {
+                ...state, // !!!!!  SPREAD PREV STATE  !!!!!
+                paymentType: action.payload
+            }
+        
         case 'SHELTERS_REQUESTED':
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
@@ -22,12 +29,6 @@ const reducer = (state = initState, action) => {
                 sheltersArr: action.payload,
                 //loading: false,
                 //error: false
-            }
-        
-        case 'CERTAIN_SHELTER_CHOOSED': 
-            return {
-                ...state, // !!!!!  SPREAD PREV STATE  !!!!!
-                certainShelterSelected: true
             }
 
         default:

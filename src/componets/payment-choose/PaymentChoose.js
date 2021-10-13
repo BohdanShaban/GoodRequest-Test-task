@@ -2,7 +2,7 @@ import './paymentChoose.css'
 import React, {Component} from "react";
 
 import {connect} from 'react-redux';
-import {certainShelterShoosed, sheltersRequested, sheltersLoaded} from '../../actions'
+import {paymentTypeChoosed, sheltersRequested, sheltersLoaded} from '../../actions'
 import PaymentChooseBtn from './payment-choose-btn/PaymentChooseBtn';
 
 class PaymentChoose extends Component {
@@ -17,16 +17,12 @@ class PaymentChoose extends Component {
 
             document.querySelectorAll('.payment-choose-btn').forEach( menuItem => { menuItem.classList.remove('active'); })
             target.classList.add('active');
-        }
 
-        // TOGLE active CLASS
-        if(target && target.id === 'shelter') {
-            //console.log('shelter');
-            
-
-        } else if (target && target.id === 'organization') {
-            //console.log('organization');
+            // CHANGE STATE PARAM ( paymentType )
+            this.props.paymentTypeChoosed( target.id );
+            //console.log(`PaymentType: ${this.props.paymentType}`)
         }
+        
     }
 
 
@@ -45,13 +41,11 @@ class PaymentChoose extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        // menuItems: state.menu,
-        // loading: state.loading,
-        // error: state.error
+        paymentType: state.paymentType
     }
 }
 const mapDispatchToProps = {
-    //onItemFromCartDeleate
+    paymentTypeChoosed
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PaymentChoose);
