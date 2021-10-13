@@ -1,15 +1,23 @@
 /*    PAYMENT CHOOSE BTN   */
 
+.active {
+    color: #FFFFFF;
+    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%);
+}
+
 .payment-choose-btn {
     width: 279px;
     height: 186px;
     display: block;
     cursor: pointer;
 
+    color: #585757; 
     background: #FAF9F9;
+
+    
     border: 1px solid #CD8B65;
     box-sizing: border-box;
-    color: #585757; /*  UN_ACTIVE color */
+    
 }
 .payment-choose__left {
     border-radius: 24px 0px 0px 24px;
@@ -60,7 +68,3 @@
     /* color: #FFFFFF; */
 }
 
-.active {
-    color: #FFFFFF;
-    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%);
-}

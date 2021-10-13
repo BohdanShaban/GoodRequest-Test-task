@@ -4,33 +4,40 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {certainShelterShoosed, sheltersRequested, sheltersLoaded} from '../../actions'
 import PaymentChooseBtn from './payment-choose-btn/PaymentChooseBtn';
+
 class PaymentChoose extends Component {
 
-    
+    paymentChooseClick = (e) => {
+        //console.log('CLICKED !!!');
+
+        // TOGLE active CLASS
+        const target = e.target;
+        //console.dir(target);
+        if(target && target.tagName === 'BUTTON') {
+
+            document.querySelectorAll('.payment-choose-btn').forEach( menuItem => { menuItem.classList.remove('active'); })
+            target.classList.add('active');
+        }
+
+        // TOGLE active CLASS
+        if(target && target.id === 'shelter') {
+            //console.log('shelter');
+            
+
+        } else if (target && target.id === 'organization') {
+            //console.log('organization');
+        }
+    }
 
 
 
     render() {
         return (
-            <div className="paymentChooseWrapper">
+            <div onClick={(e) => this.paymentChooseClick(e)} className="paymentChooseWrapper">
 
                 <PaymentChooseBtn/>
                 <PaymentChooseBtn toCertainShelter={false} isActive={true} />
 
-    
-                {/* <button className="payment-choose payment-choose__left">
-                    <div className="payment-choose__circle">
-                        <img className="payment-choose__icon" src="./icons/wallet.png" alt="wallet"/>
-                    </div>
-                    <p className="payment-choose__text">Chcem finančne prispieť <br/> konkrétnemu útulku</p>
-                </button>
-    
-                <button className="payment-choose payment-choose__right active"> 
-                    <div className="payment-choose__circle">
-                        <img className="payment-choose__icon" src="./icons/paw.png" alt="paw"/>
-                    </div>
-                    <p className="payment-choose__text">Chcem finančne prispieť <br/> celej nadácii</p>
-                </button > */}
             </div>
         )
     }
