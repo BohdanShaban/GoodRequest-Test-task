@@ -7,6 +7,13 @@ const paymentTypeChoosed = (idStr) => {
     }
 }
 
+const paymentAmountChoosed = (tagIdStr) => {
+    return {
+        type: 'PAYMENT_AMOUNT_CHOOSED',
+        payload: tagIdStr
+    }
+}
+
 const sheltersLoaded = (shelters) => {
     return {
         type: 'SHELTERS_LOADED',
@@ -23,6 +30,7 @@ const sheltersRequested = () => {
 
 export {
     paymentTypeChoosed,
+    paymentAmountChoosed,
     sheltersLoaded,
     sheltersRequested
 };

@@ -1,7 +1,7 @@
 const initState = {
     paymentType: '',
-    sheltersArr: [],
-    totalSum: 0
+    paymentAmount:'',
+    sheltersArr: []
 }
 
 
@@ -13,6 +13,12 @@ const reducer = (state = initState, action) => {
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
                 paymentType: action.payload
+            }
+
+        case 'PAYMENT_AMOUNT_CHOOSED': 
+            return {
+                ...state, // !!!!!  SPREAD PREV STATE  !!!!!
+                paymentAmount: action.payload
             }
         
         case 'SHELTERS_REQUESTED':
