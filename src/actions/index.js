@@ -14,10 +14,17 @@ const paymentAmountChoosed = (tagIdStr) => {
     }
 }
 
-const sheltersLoaded = (shelters) => {
+const sheltersLoaded = (newShelters) => {
     return {
         type: 'SHELTERS_LOADED',
-        payload: shelters
+        payload: newShelters
+    }
+}
+
+const certainShelterChoosed = (chosedShelter) => {
+    return {
+        type: 'SHELTER_CHOOSED',
+        payload: chosedShelter
     }
 }
 
@@ -32,5 +39,6 @@ export {
     paymentTypeChoosed,
     paymentAmountChoosed,
     sheltersLoaded,
+    certainShelterChoosed,
     sheltersRequested
 };

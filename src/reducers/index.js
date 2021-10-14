@@ -1,7 +1,8 @@
 const initState = {
     paymentType: '',
     paymentAmount:'',
-    sheltersArr: []
+    sheltersArr: [],
+    selectedShelter: {}
 }
 
 
@@ -25,7 +26,7 @@ const reducer = (state = initState, action) => {
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
                 shelters: state.sheltersArr,
-                //loading: true,
+                loading: true,
                 //error: false
             };
 
@@ -33,6 +34,14 @@ const reducer = (state = initState, action) => {
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
                 sheltersArr: action.payload,
+                //loading: false,
+                //error: false
+            }
+        
+        case 'SHELTER_CHOOSED':
+            return {
+                ...state, // !!!!!  SPREAD PREV STATE  !!!!!
+                selectedShelter: action.payload,
                 //loading: false,
                 //error: false
             }

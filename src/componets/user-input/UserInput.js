@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import Select from 'react-select'
 
 import {connect} from 'react-redux';
-import {paymentTypeChoosed, paymentAmountChoosed, sheltersLoaded} from '../../actions'
+import {sheltersLoaded, certainShelterChoosed} from '../../actions'
+import SheltersService from '../../services/SheltersService.js'
 
 
 const options = [
@@ -32,8 +33,11 @@ const SelectPlaceholder = (
 
 class UserInput extends Component {
 
+    apiService = new SheltersService();
+
     state = {
-      disabled: true
+      disabled: true,
+      sheltersForSelectArr: []
     }
 
     componentDidMount() {
@@ -43,14 +47,53 @@ class UserInput extends Component {
     componentDidUpdate(prevProps) {
       if (prevProps.paymentType !== this.props.paymentType){
         this.checkPaymentType();
+        if(!this.state.disabled) {
+          this.loadDataToStore();
+        }
       }
     }
 
+    loadDataToStore = () => {
+      this.apiService.getAllShelters()
+        .then( res => this.props.sheltersLoaded(res.shelters) )
+        .then( () => this.transformDataForSelect() )
+      console.log('DATA LOADED ............')
+    }
+
+    transformDataForSelect = () => {
+      console.dir(this.props.sheltersArr);
+
+      function renameKeys(obj, newKeys) {
+        const keyValues = Object.keys(obj).map(key => {
+          const newKey = newKeys[key] || key;
+          return { [newKey]: obj[key] };
+        });
+        return Object.assign({}, ...keyValues);
+      }
+
+      const initSheltersArr = this.props.sheltersArr;
+      let newArr = [];
+      initSheltersArr.forEach( obj => {
+        const newKeys = { id: "value", name: "label" };
+        const renamedSingleObj = renameKeys(obj, newKeys);
+        newArr.push(renamedSingleObj);
+      });
+      newArr.forEach( obj => {
+        obj.value = obj.value.toString();
+      })
+      //console.dir(newArr)
+      this.setState({sheltersForSelectArr: newArr})
+    }
 
     checkPaymentType = () => {
       if(this.props.paymentType === 'organization') {
         this.setState({disabled:true})
       } else { this.setState({disabled:false}) }
+    }
+
+    selectValueChange = (selectedObj) => {
+      console.log(`Selected: ${selectedObj.label}`);
+      this.props.certainShelterChoosed(selectedObj);
     }
 
     render() {
@@ -61,7 +104,8 @@ class UserInput extends Component {
           <Select placeholder={SelectPlaceholder} 
                   isDisabled={this.state.disabled} 
                   onChange={this.selectValueChange} 
-                  styles={style} options={options} 
+                  styles={style}
+                  options={this.state.sheltersForSelectArr} 
                   isSearchable={false} 
           />
   
@@ -73,11 +117,14 @@ class UserInput extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    paymentType: state.paymentType
+    paymentType: state.paymentType,
+    sheltersArr: state.sheltersArr,
+    selectedShelter: state.selectedShelter
   }
 }
 const mapDispatchToProps = {
-  //paymentAmountChoosed
+  sheltersLoaded,
+  certainShelterChoosed
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserInput);
