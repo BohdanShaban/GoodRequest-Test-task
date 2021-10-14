@@ -19,13 +19,12 @@ class SumChooseBtns extends Component {
 
             // CHANGE STATE PARAM ( paymentType )
             this.props.paymentAmountChoosed( target.id );
-            console.log(`paymentAmount: ${this.props.paymentAmount}`)
+            //console.log(`paymentAmount: ${this.props.paymentAmount}`)
         }
     }
 
 
     render() {
-
 
         return (
             <div onClick={(e) => this.btnsGroupClick(e)} className="chooseSumBtnsGroup">
@@ -51,4 +50,4 @@ const mapDispatchToProps = {
     paymentAmountChoosed
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SumChooseBtns);;
+export default connect(mapStateToProps, mapDispatchToProps)(SumChooseBtns);

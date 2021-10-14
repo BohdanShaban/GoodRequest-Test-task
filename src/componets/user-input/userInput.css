@@ -18,3 +18,15 @@
 
     color: #9F9F9F;
 }
+
+.title {
+    margin-bottom: 15px;
+
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #2F2F2F;
+}

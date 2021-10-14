@@ -32,3 +32,9 @@ const SomeClassName = () => {
 }
 
 export default SomeClassName;
+
+
+<div className="input-block">
+            <div className="title title__input">Útulok</div>
+            <input id="textInput" type="text" className="input-label" placeholder="Zadajte Vaše meno"/>
+        </div>
