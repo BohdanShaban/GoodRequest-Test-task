@@ -1,0 +1,17 @@
+.prev-page-btn {
+    padding: 20px 24px;
+    background: #F3E2D9;
+    border-radius: 100px;
+
+    font-family: Public Sans;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    color: #2F2F2F;
+
+    text-decoration: none;
+}
+
+.prev-page-btn:hover {
+    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%);
+}

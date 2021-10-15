@@ -1,20 +1,65 @@
-import styled from "styled-components"
+import { Component } from "react";
+import {Link} from 'react-router-dom';
+
+import {connect} from 'react-redux';
+import {changePageNum} from '../../actions'
+import './nextPageBtn.css'
 
 
-const NextBtn = styled.div`
-    padding: 20px 24px;
-    background: ${ props => props.isActive ? 'linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)' : '#9F9F9F' };
-    box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
-    border-radius: 100px;
-    color: #FFFFFF;
-`
+
+class NextPageBtn extends Component { 
+
+    nextBtnClicked = () => {
+
+        this.props.changePageNum(1);
+
+        // console.log(`CURRENT PAGE : ${this.props.currentPage}`);
+        // setTimeout( () => {
+        //     console.log(`CURRENT PAGE in 1 sec: ${this.props.currentPage}`);
+        // }, 500) 
+
+        
+
+        if(this.props.currentPage === 2) {
+            console.log('SEND DATA TO SERVER ...............');
+        }
+        
+    } 
 
 
-const NextPageBtn = ({active}) => {
 
-    return (
-        <NextBtn isActive={active} > Pokračovať </NextBtn>
-    )
+
+    render() {
+        let {pageTxt, currentPage} = this.props; 
+        const pageNum = ++currentPage;
+
+
+        return (
+        
+            
+
+            <div onClick={ this.nextBtnClicked  }  > 
+
+                <Link to={ pageNum.toString() } className='next-page-btn'
+                      style={{textDecoration:"none"}}
+                > 
+                            {pageTxt}
+                </Link>
+
+            </div>
+            
+            
+        )
+    }
 }
 
-export default NextPageBtn;
+const mapStateToProps = (state) => {
+    return {
+        currentPage: state.currentPage
+    }
+}
+const mapDispatchToProps = {
+    changePageNum
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NextPageBtn);

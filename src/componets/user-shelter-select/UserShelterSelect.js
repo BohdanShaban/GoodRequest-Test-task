@@ -31,7 +31,7 @@ const SelectPlaceholder = (
 )
 
 
-class UserInput extends Component {
+class UserShelterSelect extends Component {
 
     apiService = new SheltersService();
 
@@ -127,4 +127,4 @@ const mapDispatchToProps = {
   certainShelterChoosed
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserInput);
+export default connect(mapStateToProps, mapDispatchToProps)(UserShelterSelect);

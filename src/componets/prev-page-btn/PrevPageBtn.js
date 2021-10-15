@@ -1,24 +1,56 @@
-import styled from "styled-components"
+import { Component } from "react";
+import {Link} from 'react-router-dom';
+
+import {connect} from 'react-redux';
+import {changePageNum} from '../../actions'
+import './prevPageBtn.css'
 
 
-const PrevBtn = styled.div`
-    padding: 20px 24px;
-    background: #F3E2D9;
-    border-radius: 100px;
 
-    font-family: Public Sans;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 19px;
-    color: #2F2F2F;
-`
+class PrevPageBtn extends Component { 
+
+    prevBtnClicked = () => {
+        this.props.changePageNum(-1);
+
+        if(this.props.currentPage === 0) {
+            console.log('FIRST PAGE ...............');
+
+        }
+
+    } 
 
 
-const PrevPageBtn = ({active}) => {
 
-    return (
-        <PrevBtn > Späť </PrevBtn>
-    )
+
+    render() {
+        let {pageTxt, currentPage} = this.props; 
+        const pageNum = --currentPage;
+
+        return (
+        
+            
+
+            <div onClick={ this.prevBtnClicked  }  > 
+
+                <Link to={ pageNum.toString() } className='prev-page-btn'
+                      style={{textDecoration:"none"}}
+                > 
+                    {pageTxt}
+                </Link>
+            </div>
+            
+            
+        )
+    }
 }
 
-export default PrevPageBtn;
+const mapStateToProps = (state) => {
+    return {
+        currentPage: state.currentPage
+    }
+}
+const mapDispatchToProps = {
+    changePageNum
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PrevPageBtn);

@@ -4,9 +4,10 @@ import styled from "styled-components"
 import TopPageIndicator from '../../topPageIndicator/TopPageIndicator';
 import PageHeader from '../../page-header/PageHeader';
 import PaymentChoose from '../../payment-choose/PaymentChoose';
-import UserInput from '../../user-input/UserInput';
+import UserShelterSelect from '../../user-shelter-select/UserShelterSelect';
 import SumChooseBtns from '../../sum-choose-btns/SumChooseBtns';
 import NextPageBtn from '../../next-page-btn/NextPageBtn';
+import PrevPageBtn from '../../prev-page-btn/PrevPageBtn';
 import UpperTitle from '../../upper-titles/UpperTitle';
 import UpperSubTitle from '../../upper-titles/UpperSubTitle';
 
@@ -51,7 +52,7 @@ const FirstPage = () => {
             </TitlesWrapper>
 
             {/* <!-- INPUT BLOCK (Component) --> */}
-            <UserInput/>
+            <UserShelterSelect/>
 
 
             {/* <!-- TITLES BLOCK-S (Component-s) --> */}
@@ -66,8 +67,8 @@ const FirstPage = () => {
 
             {/* <!-- BTN BLOCK (Component) --> */}
             <PrevNextBtnsWrapper>
-                <div></div>
-                <NextPageBtn active/>
+                <PrevPageBtn pageTxt={'Späť'}/>
+                <NextPageBtn pageTxt={'Pokračovať'}/>
             </PrevNextBtnsWrapper>
             
 

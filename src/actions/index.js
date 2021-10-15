@@ -28,9 +28,10 @@ const certainShelterChoosed = (chosedShelter) => {
     }
 }
 
-const sheltersRequested = () => {
-    return {
-        type: 'SHELTERS_REQUESTED'
+const changePageNum =  (iterator) => {
+    return  {
+        type: 'CHANGE_PAGE_NUM',
+        payload: iterator
     }
 }
 
@@ -40,5 +41,5 @@ export {
     paymentAmountChoosed,
     sheltersLoaded,
     certainShelterChoosed,
-    sheltersRequested
+    changePageNum
 };

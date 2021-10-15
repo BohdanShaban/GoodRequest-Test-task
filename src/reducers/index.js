@@ -2,34 +2,25 @@ const initState = {
     paymentType: '',
     paymentAmount:'',
     sheltersArr: [],
-    selectedShelter: {}
+    selectedShelter: {},
+    currentPage: 0
 }
 
 
 const reducer = (state = initState, action) => {
 
-    switch(action.type) {
+    switch(action.type) { 
 
         case 'PAYMENT_TYPE_CHOOSED': 
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
                 paymentType: action.payload
             }
-
         case 'PAYMENT_AMOUNT_CHOOSED': 
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
                 paymentAmount: action.payload
             }
-        
-        case 'SHELTERS_REQUESTED':
-            return {
-                ...state, // !!!!!  SPREAD PREV STATE  !!!!!
-                shelters: state.sheltersArr,
-                loading: true,
-                //error: false
-            };
-
         case 'SHELTERS_LOADED':
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
@@ -37,11 +28,18 @@ const reducer = (state = initState, action) => {
                 //loading: false,
                 //error: false
             }
-        
+    
         case 'SHELTER_CHOOSED':
             return {
                 ...state, // !!!!!  SPREAD PREV STATE  !!!!!
                 selectedShelter: action.payload,
+                //loading: false,
+                //error: false
+            }
+        case 'CHANGE_PAGE_NUM':
+            return {
+                ...state, // !!!!!  SPREAD PREV STATE  !!!!!
+                currentPage: state.currentPage + action.payload
                 //loading: false,
                 //error: false
             }
