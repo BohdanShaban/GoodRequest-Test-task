@@ -46,7 +46,12 @@ const SecondPage = () => {
 
 
             {/* <!-- USER INPUT BLOCK (Component) --> */}
-            <UserInputBlock/>
+            <UserInputBlock titleTxt={'Meno'} placeHolderTxt={'Zadajte Vaše meno'}  />
+            <UserInputBlock titleTxt={'Priezvisko'} placeHolderTxt={'Zadajte Vaše priezvisko'}  />
+            <UserInputBlock titleTxt={'E-mailová adresa'} placeHolderTxt={'Zadajte Váš e-mail'}  />
+            <UserInputBlock isPhone titleTxt={'Telefónne číslo'} placeHolderTxt={'+421'}  />
+
+
 
 
             {/* <!-- BTN BLOCK (Component) --> */}

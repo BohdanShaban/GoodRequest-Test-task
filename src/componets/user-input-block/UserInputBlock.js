@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 
 import {changePageNum} from '../../actions'
+import flagImg from './slovak_flag.png'
 
 
 
@@ -10,15 +11,23 @@ class UserInputBlock extends Component {
 
 
     render() {
+        const { titleTxt, placeHolderTxt, isPhone } = this.props;
 
         return (
-            <div class="input-block">
-                <div class="title title__input">Útulok</div>
-                <input id="textInput" type="text" class="input-label" placeholder="Zadajte Vaše meno" />
+            <div className="input-block">
+                <div className="title title__input"> {titleTxt} </div>
+                <div style={{display:'flex'}}>
+                    { isPhone ? <img src={flagImg} style={{marginRight:'12px'}} alt='flag' /> : null }
+                    <input id="textInput" type="text" className="input-label" placeholder={placeHolderTxt} />
+                </div> 
             </div>
         )
     }
 }
+
+UserInputBlock.defaultProps = {
+    isPhone: false
+};
 
 const mapStateToProps = (state) => {
     return {

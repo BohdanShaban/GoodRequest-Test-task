@@ -6,6 +6,9 @@
     box-sizing: border-box;
     border-radius: 8px;
 }
+.input-block:hover {
+    border: 1px solid #CD8B65;
+}
 
 .title {
     margin-bottom: 15px;
