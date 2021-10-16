@@ -11,19 +11,16 @@ class NextPageBtn extends Component {
 
     nextBtnClicked = () => {
 
-        this.props.changePageNum(1);
+        return new Promise( (resolve, reject) => {
+            this.props.changePageNum(1); 
+            resolve();
 
-        // console.log(`CURRENT PAGE : ${this.props.currentPage}`);
-        // setTimeout( () => {
-        //     console.log(`CURRENT PAGE in 1 sec: ${this.props.currentPage}`);
-        // }, 500) 
-
-        
-
-        if(this.props.currentPage === 2) {
-            console.log('SEND DATA TO SERVER ...............');
-        }
-        
+        }).then( () => {
+            
+            if(this.props.currentPage === 2) {
+                console.log('SEND DATA TO SERVER ...............');
+            }
+        })
     } 
 
 
@@ -35,8 +32,7 @@ class NextPageBtn extends Component {
 
 
         return (
-        
-            
+
 
             <div onClick={ this.nextBtnClicked  }  > 
 

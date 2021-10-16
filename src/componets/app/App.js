@@ -2,7 +2,7 @@ import { Component } from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import RightImage from "../right-image/RightImage";
-import FirstPage from "../pages/first-page/FirstPage";
+import { FirstPage,SecondPage } from "../pages";
 import Footer from "../footer/Footer";
 
 import './app.css' 

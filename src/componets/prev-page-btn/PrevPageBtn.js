@@ -10,13 +10,18 @@ import './prevPageBtn.css'
 class PrevPageBtn extends Component { 
 
     prevBtnClicked = () => {
-        this.props.changePageNum(-1);
 
-        if(this.props.currentPage === 0) {
-            console.log('FIRST PAGE ...............');
+        return new Promise( (resolve, reject) => {
+            this.props.changePageNum(-1); 
+            resolve();
 
-        }
-
+        }).then( () => {
+            
+            if(this.props.currentPage === 0) {
+                console.log('FIRST PAGE ...............');
+    
+            }
+        })
     } 
 
 
