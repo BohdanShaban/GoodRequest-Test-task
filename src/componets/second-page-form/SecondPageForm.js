@@ -31,25 +31,18 @@ const MyTextInput = ({ label, isPhone=false, ...props }) => {
     return (
       <>
         <div className="input-block">
-            {/* <div className="title title__input"> {titleTxt} </div> */}
+
             <label className="title title__input" htmlFor={props.name}>{label}</label>
 
             <div style={{display:'flex'}}>
                 { isPhone ? <img src={flagImg} style={{marginRight:'12px'}} alt='flag' /> : null }
-                {/* <input className="input-label" placeholder={placeHolderTxt} 
-                    onChange={this.onValueChange}  value={this.state.inputTxt} /> */}
+                
                     <input {...field} {...props} className="input-label" />
                     {meta.touched && meta.error ? (
                     <div className="error">{meta.error}</div>
                     ) : null}
             </div> 
         </div>
-
-        {/* <label htmlFor={props.name}>{label}</label>
-        <input {...field} {...props} />
-        {meta.touched && meta.error ? (
-          <div className="error">{meta.error}</div>
-        ) : null} */}
       </>
     );
 };
@@ -129,37 +122,7 @@ const SecondPageForm = () => {
                     type="text"
                     autoComplete="off"
                 />
-
-
                 
-                {/* <label htmlFor="amount">Количество</label>
-                <Field
-                    id="amount"
-                    name="amount"
-                    type="number"
-                    autoComplete="off"
-                />
-                <ErrorMessage component="div" className="error" name="amount"/>
-
-                <label htmlFor="currency">Валюта</label>
-                <Field
-                    id="currency"
-                    name="currency"
-                    as="select"
-                    >
-                        <option value="">Выберите валюту</option>
-                        <option value="USD">USD</option>
-                        <option value="UAH">UAH</option>
-                        <option value="RUB">RUB</option>
-                </Field>
-                <ErrorMessage component="div" className="error" name="currency"/>
-                <label htmlFor="text">Ваше сообщение</label>
-                <Field 
-                    id="text"
-                    name="text"
-                    as="textarea"
-                />
-                <ErrorMessage component="div" className="error" name="text"/> */}
                 
                 {/* <!-- BTN BLOCK (Component) --> */}
                 <PrevNextBtnsWrapper>
