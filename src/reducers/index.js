@@ -3,7 +3,12 @@ const initState = {
     paymentAmount:'',
     sheltersArr: [],
     selectedShelter: {},
-    currentPage: 0
+    currentPage: 0,
+
+    userName: '',
+    userSurname: '',
+    userEmail: '',
+    userPhone: ''
 }
 
 

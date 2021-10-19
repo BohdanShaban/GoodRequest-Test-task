@@ -19,12 +19,10 @@ class NextPageBtn extends Component {
             
             if(this.props.currentPage === 2) {
                 console.log('SEND DATA TO SERVER ...............');
+                
             }
         })
     } 
-
-
-
 
     render() {
         let {pageTxt, currentPage} = this.props; 
@@ -34,7 +32,7 @@ class NextPageBtn extends Component {
         return (
 
 
-            <div onClick={ this.nextBtnClicked  }  > 
+            <buton type="submit" onClick={ this.nextBtnClicked  }  > 
 
                 <Link to={ pageNum.toString() } className='next-page-btn'
                       style={{textDecoration:"none"}}
@@ -42,7 +40,7 @@ class NextPageBtn extends Component {
                             {pageTxt}
                 </Link>
 
-            </div>
+            </buton>
             
             
         )
