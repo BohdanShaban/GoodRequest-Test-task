@@ -11,6 +11,9 @@ import PrevPageBtn from '../prev-page-btn/PrevPageBtn';
 import UpperTitle from '../upper-titles/UpperTitle';
 import flagImg from './slovak_flag.png'
 
+// const Yup = require('yup');
+// require('yup-phone');
+
 
 const PrevNextBtnsWrapper = styled.div`
     margin-top: 50px;
@@ -60,10 +63,10 @@ const SecondPageForm = () => {
     return (
         <Formik
             initialValues = {{
-                name: 'Zadajte Vaše meno',
-                surname: 'Zadajte Vaše priezvisko',
-                email: 'Zadajte Váš e-mail',
-                phoneNumber: '+421 '
+                name: '',
+                surname: '',
+                email: '',
+                phone: '+421 '
             }}
             validationSchema = {Yup.object({
                 name: Yup.string()
@@ -75,7 +78,12 @@ const SecondPageForm = () => {
                 email: Yup.string()
                         .email('Wrong email')
                         .required('This Field is Required!'),
-                phoneNumber: Yup.string().matches(phoneRegExp, 'Phone number is not valid')
+                phone: Yup.number()
+                        .typeError("That doesn't look like a phone number")
+                        .positive("A phone number can't start with a minus")
+                        .integer("A phone number can't include a decimal point")
+                        .min(8)
+                        .required('A phone number is required'),
             })}
             onSubmit = {values => console.log(JSON.stringify(values, null, 2))} // !!! values is Obj 
         >
@@ -87,6 +95,7 @@ const SecondPageForm = () => {
                 </TitlesWrapper>
 
                 <MyTextInput
+                    placeholder='Zadajte Vaše meno'
                     label="Meno"
                     id="name"
                     name="name"
@@ -95,6 +104,7 @@ const SecondPageForm = () => {
                 />
                 
                 <MyTextInput
+                    placeholder='Zadajte Vaše priezvisko'
                     label="Priezvisko"
                     id="surname"
                     name="surname"
@@ -103,10 +113,20 @@ const SecondPageForm = () => {
                 />
 
                 <MyTextInput
+                    placeholder='Zadajte Váš e-mail'
                     label="E-mailová adresa"
                     id="email"
                     name="email"
                     type="email"
+                    autoComplete="off"
+                />
+
+                <MyTextInput
+                    isPhone
+                    label="Telefónne číslo"
+                    id="phone"
+                    name="phone"
+                    type="text"
                     autoComplete="off"
                 />
 
